@@ -1,26 +1,58 @@
+@font-face { font-family: "Satoshi"; src: url("https://framerusercontent.com/third-party-assets/fontshare/wf/TTX2Z3BF3P6Y5BQT3IV2VNOK6FL22KUT/7QYRJOI3JIMYHGY6CH7SOIFRQLZOLNJ6/KFIAZD4RUMEZIYV6FQ3T3GP5PDBDB6JY.woff2"); font-display: swap; font-style: normal; font-weight: 400 }
+@font-face { font-family: "Satoshi"; src: url("https://framerusercontent.com/third-party-assets/fontshare/wf/P2LQKHE6KA6ZP4AAGN72KDWMHH6ZH3TA/ZC32TK2P7FPS5GFTL46EU6KQJA24ZYDB/7AHDUZ4A7LFLVFUIFSARGIWCRQJHISQP.woff2"); font-display: swap; font-style: normal; font-weight: 500 }
+@font-face { font-family: "Satoshi"; src: url("https://framerusercontent.com/third-party-assets/fontshare/wf/LAFFD4SDUCDVQEXFPDC7C53EQ4ZELWQI/PXCT3G6LO6ICM5I3NTYENYPWJAECAWDD/GHM6WVH6MILNYOOCXHXB5GTSGNTMGXZR.woff2"); font-display: swap; font-style: normal; font-weight: 700 }
+@font-face { font-family: "Satoshi"; src: url("https://framerusercontent.com/third-party-assets/fontshare/wf/CDEBEFT2R7XKNGXSBBLZGMY4MMHZG75P/HEVKDGQCYDZ7Z6CDVR2ZQGBCTUD6ZARH/BKWEE3VKGTFABE37K2DTH625VUSN2N35.woff2"); font-display: swap; font-style: italic; font-weight: 700 }
+@font-face { font-family: "Satoshi"; src: url("https://framerusercontent.com/third-party-assets/fontshare/wf/NID3I7RITWZSKXRCJGOCMP5NOADJK6IG/2HLHGD7OBTWCOHW64YXOE5KFXHU4KJHM/ZHME2QIRFR7UPJ47NLY27RCAFY44CKZJ.woff2"); font-display: swap; font-style: italic; font-weight: 500 }
+@font-face { font-family: "Satoshi"; src: url("https://framerusercontent.com/third-party-assets/fontshare/wf/MPIFA4B3XXRNY2MJDGP6GOOOAF6EOCLO/W5E4ZFYPJ3V6JKMBGHB6YMITK6EWS2XA/QOMBWPST76ICDYF6WOBS7SQ7RBT67QW2.woff2"); font-display: swap; font-style: italic; font-weight: 400 }
+@font-face { font-family: "Satoshi Placeholder"; src: local("Arial"); ascent-override: 102.23%; descent-override: 24.29%; line-gap-override: 10.12%; size-adjust: 98.80% }
+
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme {
+  --font-sans: 'Satoshi', ui-sans-serif, system-ui, sans-serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  background-color: #000;
+  color: #e6e6e6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@keyframes blob1 {
+  0%, 100% { transform: translate3d(0px, 0px, 0px) scale(1) rotate(0deg); }
+  25% { transform: translate3d(25%, 15%, 0px) scale(1.1) rotate(5deg); }
+  50% { transform: translate3d(10%, 35%, 0px) scale(0.9) rotate(15deg); }
+  75% { transform: translate3d(-15%, 20%, 0px) scale(1.05) rotate(-5deg); }
+}
+@keyframes blob2 {
+  0%, 100% { transform: translate3d(0px, 0px, 0px) scale(1) rotate(0deg); }
+  25% { transform: translate3d(-20%, 30%, 0px) scale(1.15) rotate(-10deg); }
+  50% { transform: translate3d(15%, 10%, 0px) scale(0.95) rotate(5deg); }
+  75% { transform: translate3d(-10%, -25%, 0px) scale(1.1) rotate(-15deg); }
+}
+@keyframes blob3 {
+  0%, 100% { transform: translate3d(0px, 0px, 0px) scale(1) rotate(0deg); }
+  25% { transform: translate3d(30%, -15%, 0px) scale(0.95) rotate(10deg); }
+  50% { transform: translate3d(-20%, 20%, 0px) scale(1.1) rotate(-5deg); }
+  75% { transform: translate3d(15%, 25%, 0px) scale(1.05) rotate(8deg); }
+}
+@keyframes blob4 {
+  0%, 100% { transform: translate3d(0px, 0px, 0px) scale(1) rotate(0deg); }
+  25% { transform: translate3d(-15%, -35%, 0px) scale(1.2) rotate(-8deg); }
+  50% { transform: translate3d(25%, -10%, 0px) scale(0.9) rotate(12deg); }
+  75% { transform: translate3d(10%, 30%, 0px) scale(1.1) rotate(-4deg); }
+}
+@keyframes blob5 {
+  0%, 100% { transform: translate3d(0px, 0px, 0px) scale(1) rotate(0deg); }
+  25% { transform: translate3d(35%, 10%, 0px) scale(1.05) rotate(15deg); }
+  50% { transform: translate3d(-15%, -25%, 0px) scale(1.15) rotate(-10deg); }
+  75% { transform: translate3d(-25%, 20%, 0px) scale(0.95) rotate(5deg); }
+}
+@keyframes blob6 {
+  0%, 100% { transform: translate3d(0px, 0px, 0px) scale(1) rotate(0deg); }
+  25% { transform: translate3d(-30%, -20%, 0px) scale(1.1) rotate(-10deg); }
+  50% { transform: translate3d(20%, -35%, 0px) scale(0.95) rotate(8deg); }
+  75% { transform: translate3d(15%, 25%, 0px) scale(1.15) rotate(-12deg); }
 }
