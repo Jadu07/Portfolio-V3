@@ -8,13 +8,14 @@ import ProjectsEditor from "./ProjectsEditor";
 import AboutEditor from "./AboutEditor";
 import ToolsEditor from "./ToolsEditor";
 import EasterEggEditor from "./EasterEggEditor";
+import AnalyticsDashboard from "./AnalyticsDashboard";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 export default function AdminDashboard({ initialData }: { initialData: GistData }) {
   const [data, setData] = useState<GistData>(initialData);
   const [history, setHistory] = useState<GistData[]>([]);
-  const [activeTab, setActiveTab] = useState<"config" | "projects" | "about" | "tools" | "easter-egg">("config");
+  const [activeTab, setActiveTab] = useState<"config" | "projects" | "about" | "tools" | "easter-egg" | "analytics">("config");
   const [isSaving, setIsSaving] = useState(false);
   const [saveStatus, setSaveStatus] = useState<"idle" | "success" | "error">("idle");
 
@@ -199,6 +200,7 @@ export default function AdminDashboard({ initialData }: { initialData: GistData 
       <div className="flex flex-1 overflow-hidden relative z-10">
         {/* Sidebar */}
         <aside className="w-[240px] border-r border-white/5 bg-black/20 backdrop-blur-xl p-4 flex flex-col gap-2 shrink-0">
+          <TabButton active={activeTab === "analytics"} onClick={() => setActiveTab("analytics")} label="📊 Analytics Dashboard" />
           <TabButton active={activeTab === "config"} onClick={() => setActiveTab("config")} label="Global Settings" />
           <TabButton active={activeTab === "projects"} onClick={() => setActiveTab("projects")} label="Projects" />
           <TabButton active={activeTab === "about"} onClick={() => setActiveTab("about")} label="About Me" />
@@ -209,6 +211,7 @@ export default function AdminDashboard({ initialData }: { initialData: GistData 
         {/* Editor Area */}
         <main className="flex-1 overflow-y-auto bg-transparent p-6 lg:p-12 relative">
           <div className="max-w-[900px] mx-auto w-full pb-32">
+            {activeTab === "analytics" && <AnalyticsDashboard />}
             {activeTab === "config" && data.config && <ConfigEditor config={data.config} onChange={(c) => handleUpdate("config", c)} />}
             {activeTab === "projects" && <ProjectsEditor projects={data.projects} onChange={(p) => handleUpdate("projects", p)} />}
             {activeTab === "about" && data.about && <AboutEditor about={data.about} onChange={(a) => handleUpdate("about", a)} />}

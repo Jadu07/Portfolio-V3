@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import AnimatedBackground from "@/components/AnimatedBackground";
+import GoatCounterScript from "@/components/GoatCounterScript";
 import { fetchConfig } from "@/lib/projects";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -60,6 +61,7 @@ export default async function RootLayout({
     <html lang="en">
       <body className={`antialiased bg-[#000000] text-[#e6e6e6] overflow-x-hidden`}>
         <AnimatedBackground />
+        <GoatCounterScript />
         <Navbar config={config} />
         {children}
       </body>
