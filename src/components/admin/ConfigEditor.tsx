@@ -15,6 +15,22 @@ export default function ConfigEditor({ config, onChange }: { config: HomeConfig,
     });
   };
 
+  const moveItem = <T,>(list: T[], index: number, direction: 'up' | 'down', field: string) => {
+    if (direction === 'up' && index > 0) {
+      const updated = [...list];
+      const temp = updated[index];
+      updated[index] = updated[index - 1];
+      updated[index - 1] = temp;
+      updateField(field, updated);
+    } else if (direction === 'down' && index < list.length - 1) {
+      const updated = [...list];
+      const temp = updated[index];
+      updated[index] = updated[index + 1];
+      updated[index + 1] = temp;
+      updateField(field, updated);
+    }
+  };
+
   return (
     <div className="flex flex-col gap-12">
       <Section title="General">
@@ -49,6 +65,28 @@ export default function ConfigEditor({ config, onChange }: { config: HomeConfig,
         <div className="flex flex-col gap-4">
           {config.socials.map((social, idx) => (
             <div key={idx} className="bg-[#131a26] border border-white/5 p-6 rounded-2xl flex flex-col gap-4 relative">
+              <div className="flex items-center justify-between">
+                <h3 className="font-medium text-[#e6e6e6]">Social Link {idx + 1}</h3>
+                <div className="flex items-center gap-2 mr-8">
+                  <button 
+                    onClick={() => moveItem(config.socials, idx, 'up', 'socials')}
+                    disabled={idx === 0}
+                    className="w-7 h-7 flex items-center justify-center bg-white/5 text-white/60 rounded-lg hover:bg-white/10 hover:text-white disabled:opacity-20 transition-colors text-xs"
+                    title="Move Up"
+                  >
+                    ↑
+                  </button>
+                  <button 
+                    onClick={() => moveItem(config.socials, idx, 'down', 'socials')}
+                    disabled={idx === config.socials.length - 1}
+                    className="w-7 h-7 flex items-center justify-center bg-white/5 text-white/60 rounded-lg hover:bg-white/10 hover:text-white disabled:opacity-20 transition-colors text-xs"
+                    title="Move Down"
+                  >
+                    ↓
+                  </button>
+                </div>
+              </div>
+
               <button 
                 onClick={() => {
                   const newSocials = [...config.socials];
@@ -60,7 +98,7 @@ export default function ConfigEditor({ config, onChange }: { config: HomeConfig,
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
               </button>
-              <h3 className="font-medium text-[#e6e6e6]">Social Link {idx + 1}</h3>
+
               <Input label="Platform Name" value={social.platform} onChange={(v) => {
                 const newSocials = [...config.socials];
                 newSocials[idx].platform = v;
@@ -105,6 +143,28 @@ export default function ConfigEditor({ config, onChange }: { config: HomeConfig,
         <div className="flex flex-col gap-4">
           {config.domains.map((domain, idx) => (
             <div key={idx} className="bg-[#131a26] border border-white/5 p-6 rounded-2xl flex flex-col gap-4 relative">
+              <div className="flex items-center justify-between">
+                <h3 className="font-medium text-[#e6e6e6]">Domain {idx + 1}</h3>
+                <div className="flex items-center gap-2 mr-8">
+                  <button 
+                    onClick={() => moveItem(config.domains, idx, 'up', 'domains')}
+                    disabled={idx === 0}
+                    className="w-7 h-7 flex items-center justify-center bg-white/5 text-white/60 rounded-lg hover:bg-white/10 hover:text-white disabled:opacity-20 transition-colors text-xs"
+                    title="Move Up"
+                  >
+                    ↑
+                  </button>
+                  <button 
+                    onClick={() => moveItem(config.domains, idx, 'down', 'domains')}
+                    disabled={idx === config.domains.length - 1}
+                    className="w-7 h-7 flex items-center justify-center bg-white/5 text-white/60 rounded-lg hover:bg-white/10 hover:text-white disabled:opacity-20 transition-colors text-xs"
+                    title="Move Down"
+                  >
+                    ↓
+                  </button>
+                </div>
+              </div>
+
               <button 
                 onClick={() => {
                   const newDomains = [...config.domains];
@@ -115,7 +175,6 @@ export default function ConfigEditor({ config, onChange }: { config: HomeConfig,
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
               </button>
-              <h3 className="font-medium text-[#e6e6e6]">Domain {idx + 1}</h3>
               <Input label="Title" value={domain.title} onChange={(v) => {
                 const newDomains = [...config.domains];
                 newDomains[idx].title = v;

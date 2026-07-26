@@ -31,6 +31,60 @@ export default function ProjectsEditor({ projects, onChange }: { projects: Proje
     onChange(projects.map(p => p.id === id ? { ...p, [field]: value } : p));
   };
 
+  const moveProject = (index: number, direction: 'up' | 'down') => {
+    if (direction === 'up' && index > 0) {
+      const updated = [...projects];
+      const temp = updated[index];
+      updated[index] = updated[index - 1];
+      updated[index - 1] = temp;
+      updated.forEach((p, i) => p.order = i + 1);
+      onChange(updated);
+    } else if (direction === 'down' && index < projects.length - 1) {
+      const updated = [...projects];
+      const temp = updated[index];
+      updated[index] = updated[index + 1];
+      updated[index + 1] = temp;
+      updated.forEach((p, i) => p.order = i + 1);
+      onChange(updated);
+    }
+  };
+
+  const moveStat = (projId: string, index: number, direction: 'up' | 'down') => {
+    const proj = projects.find(p => p.id === projId);
+    if (!proj || !proj.stats) return;
+    if (direction === 'up' && index > 0) {
+      const updated = [...proj.stats];
+      const temp = updated[index];
+      updated[index] = updated[index - 1];
+      updated[index - 1] = temp;
+      updateProject(projId, 'stats', updated);
+    } else if (direction === 'down' && index < proj.stats.length - 1) {
+      const updated = [...proj.stats];
+      const temp = updated[index];
+      updated[index] = updated[index + 1];
+      updated[index + 1] = temp;
+      updateProject(projId, 'stats', updated);
+    }
+  };
+
+  const moveButton = (projId: string, index: number, direction: 'up' | 'down') => {
+    const proj = projects.find(p => p.id === projId);
+    if (!proj || !proj.buttons) return;
+    if (direction === 'up' && index > 0) {
+      const updated = [...proj.buttons];
+      const temp = updated[index];
+      updated[index] = updated[index - 1];
+      updated[index - 1] = temp;
+      updateProject(projId, 'buttons', updated);
+    } else if (direction === 'down' && index < proj.buttons.length - 1) {
+      const updated = [...proj.buttons];
+      const temp = updated[index];
+      updated[index] = updated[index + 1];
+      updated[index + 1] = temp;
+      updateProject(projId, 'buttons', updated);
+    }
+  };
+
   return (
     <div className="flex flex-col gap-6">
       <div className="flex items-center justify-between pb-4 border-b border-white/10">
@@ -56,7 +110,25 @@ export default function ProjectsEditor({ projects, onChange }: { projects: Proje
                 onClick={() => setExpandedId(isExpanded ? null : proj.id)}
               >
                 <div className="flex items-center gap-4">
-                  <span className="text-[#a1a1aa] font-mono text-sm">{idx + 1}</span>
+                  <div className="flex items-center gap-1" onClick={(e) => e.stopPropagation()}>
+                    <button 
+                      onClick={() => moveProject(idx, 'up')}
+                      disabled={idx === 0}
+                      className="w-6 h-6 flex items-center justify-center bg-white/5 text-white/60 rounded hover:bg-white/10 hover:text-white disabled:opacity-20 transition-colors text-xs"
+                      title="Move Up"
+                    >
+                      ↑
+                    </button>
+                    <button 
+                      onClick={() => moveProject(idx, 'down')}
+                      disabled={idx === projects.length - 1}
+                      className="w-6 h-6 flex items-center justify-center bg-white/5 text-white/60 rounded hover:bg-white/10 hover:text-white disabled:opacity-20 transition-colors text-xs"
+                      title="Move Down"
+                    >
+                      ↓
+                    </button>
+                  </div>
+                  <span className="text-[#a1a1aa] font-mono text-sm">#{idx + 1}</span>
                   <h3 className="font-medium text-[#e6e6e6]">{proj.title || "Untitled Project"}</h3>
                   {proj.isFeatured && <span className="text-[10px] uppercase tracking-wider bg-blue-500/20 text-blue-400 px-2 py-1 rounded-full">Featured</span>}
                 </div>
@@ -140,7 +212,25 @@ export default function ProjectsEditor({ projects, onChange }: { projects: Proje
                       </button>
                     </div>
                     {proj.stats?.map((stat, sIdx) => (
-                      <div key={sIdx} className="flex items-start gap-4 p-4 bg-[#131a26] rounded-xl relative group">
+                      <div key={sIdx} className="flex items-center gap-3 p-4 bg-[#131a26] rounded-xl relative group">
+                        <div className="flex flex-col gap-1 shrink-0">
+                          <button 
+                            onClick={() => moveStat(proj.id, sIdx, 'up')}
+                            disabled={sIdx === 0}
+                            className="w-6 h-6 flex items-center justify-center bg-white/5 text-white/60 rounded hover:bg-white/10 hover:text-white disabled:opacity-20 transition-colors text-xs"
+                            title="Move Up"
+                          >
+                            ↑
+                          </button>
+                          <button 
+                            onClick={() => moveStat(proj.id, sIdx, 'down')}
+                            disabled={sIdx === (proj.stats?.length || 0) - 1}
+                            className="w-6 h-6 flex items-center justify-center bg-white/5 text-white/60 rounded hover:bg-white/10 hover:text-white disabled:opacity-20 transition-colors text-xs"
+                            title="Move Down"
+                          >
+                            ↓
+                          </button>
+                        </div>
                         <div className="flex-1 grid grid-cols-2 gap-4">
                           <Input label="Label (e.g. Time Saved)" value={stat.label} onChange={(v) => {
                             const newStats = [...proj.stats];
@@ -181,6 +271,28 @@ export default function ProjectsEditor({ projects, onChange }: { projects: Proje
                     </div>
                     {proj.buttons?.map((btn, bIdx) => (
                       <div key={bIdx} className="flex flex-col gap-4 p-4 bg-[#131a26] rounded-xl relative">
+                        <div className="flex items-center justify-between">
+                          <span className="text-xs text-white/50">Button #{bIdx + 1}</span>
+                          <div className="flex items-center gap-2 mr-8">
+                            <button 
+                              onClick={() => moveButton(proj.id, bIdx, 'up')}
+                              disabled={bIdx === 0}
+                              className="w-6 h-6 flex items-center justify-center bg-white/5 text-white/60 rounded hover:bg-white/10 hover:text-white disabled:opacity-20 transition-colors text-xs"
+                              title="Move Up"
+                            >
+                              ↑
+                            </button>
+                            <button 
+                              onClick={() => moveButton(proj.id, bIdx, 'down')}
+                              disabled={bIdx === (proj.buttons?.length || 0) - 1}
+                              className="w-6 h-6 flex items-center justify-center bg-white/5 text-white/60 rounded hover:bg-white/10 hover:text-white disabled:opacity-20 transition-colors text-xs"
+                              title="Move Down"
+                            >
+                              ↓
+                            </button>
+                          </div>
+                        </div>
+
                         <button 
                           onClick={() => {
                             const newBtns = [...proj.buttons];
