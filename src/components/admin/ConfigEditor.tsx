@@ -64,40 +64,42 @@ export default function ConfigEditor({ config, onChange }: { config: HomeConfig,
       <Section title="Social Links">
         <div className="flex flex-col gap-4">
           {config.socials.map((social, idx) => (
-            <div key={idx} className="bg-[#131a26] border border-white/5 p-6 rounded-2xl flex flex-col gap-4 relative">
-              <div className="flex items-center justify-between">
-                <h3 className="font-medium text-[#e6e6e6]">Social Link {idx + 1}</h3>
-                <div className="flex items-center gap-2 mr-8">
-                  <button 
+            <div key={idx} className="bg-white/5 p-4 rounded-xl border border-white/10 flex flex-col gap-4 group hover:border-white/20 transition-all">
+              <div className="flex justify-between items-center">
+                <h3 className="font-medium text-white/80">Social Link {idx + 1}</h3>
+                <div className="flex items-center gap-2">
+                  <button
                     onClick={() => moveItem(config.socials, idx, 'up', 'socials')}
                     disabled={idx === 0}
-                    className="w-7 h-7 flex items-center justify-center bg-white/5 text-white/60 rounded-lg hover:bg-white/10 hover:text-white disabled:opacity-20 transition-colors text-xs"
+                    className="p-2 text-white/50 hover:text-white disabled:opacity-20 transition-colors"
                     title="Move Up"
                   >
                     ↑
                   </button>
-                  <button 
+                  <button
                     onClick={() => moveItem(config.socials, idx, 'down', 'socials')}
                     disabled={idx === config.socials.length - 1}
-                    className="w-7 h-7 flex items-center justify-center bg-white/5 text-white/60 rounded-lg hover:bg-white/10 hover:text-white disabled:opacity-20 transition-colors text-xs"
+                    className="p-2 text-white/50 hover:text-white disabled:opacity-20 transition-colors"
                     title="Move Down"
                   >
                     ↓
                   </button>
+                  <button
+                    onClick={() => {
+                      const newSocials = [...config.socials];
+                      newSocials.splice(idx, 1);
+                      updateField("socials", newSocials);
+                    }}
+                    className="p-2 text-red-400 hover:bg-red-500/10 rounded-lg transition-colors ml-2"
+                    title="Remove Social Link"
+                  >
+                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none">
+                      <line x1="18" y1="6" x2="6" y2="18"></line>
+                      <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                  </button>
                 </div>
               </div>
-
-              <button 
-                onClick={() => {
-                  const newSocials = [...config.socials];
-                  newSocials.splice(idx, 1);
-                  updateField("socials", newSocials);
-                }}
-                className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center bg-red-500/10 text-red-400 rounded-full hover:bg-red-500/20 transition-colors"
-                title="Remove"
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-              </button>
 
               <Input label="Platform Name" value={social.platform} onChange={(v) => {
                 const newSocials = [...config.socials];
@@ -142,39 +144,43 @@ export default function ConfigEditor({ config, onChange }: { config: HomeConfig,
       <Section title="Domain Cards (Expertise)">
         <div className="flex flex-col gap-4">
           {config.domains.map((domain, idx) => (
-            <div key={idx} className="bg-[#131a26] border border-white/5 p-6 rounded-2xl flex flex-col gap-4 relative">
-              <div className="flex items-center justify-between">
-                <h3 className="font-medium text-[#e6e6e6]">Domain {idx + 1}</h3>
-                <div className="flex items-center gap-2 mr-8">
-                  <button 
+            <div key={idx} className="bg-white/5 p-4 rounded-xl border border-white/10 flex flex-col gap-4 group hover:border-white/20 transition-all">
+              <div className="flex justify-between items-center">
+                <h3 className="font-medium text-white/80">Domain {idx + 1}</h3>
+                <div className="flex items-center gap-2">
+                  <button
                     onClick={() => moveItem(config.domains, idx, 'up', 'domains')}
                     disabled={idx === 0}
-                    className="w-7 h-7 flex items-center justify-center bg-white/5 text-white/60 rounded-lg hover:bg-white/10 hover:text-white disabled:opacity-20 transition-colors text-xs"
+                    className="p-2 text-white/50 hover:text-white disabled:opacity-20 transition-colors"
                     title="Move Up"
                   >
                     ↑
                   </button>
-                  <button 
+                  <button
                     onClick={() => moveItem(config.domains, idx, 'down', 'domains')}
                     disabled={idx === config.domains.length - 1}
-                    className="w-7 h-7 flex items-center justify-center bg-white/5 text-white/60 rounded-lg hover:bg-white/10 hover:text-white disabled:opacity-20 transition-colors text-xs"
+                    className="p-2 text-white/50 hover:text-white disabled:opacity-20 transition-colors"
                     title="Move Down"
                   >
                     ↓
                   </button>
+                  <button
+                    onClick={() => {
+                      const newDomains = [...config.domains];
+                      newDomains.splice(idx, 1);
+                      updateField("domains", newDomains);
+                    }}
+                    className="p-2 text-red-400 hover:bg-red-500/10 rounded-lg transition-colors ml-2"
+                    title="Remove Domain"
+                  >
+                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none">
+                      <line x1="18" y1="6" x2="6" y2="18"></line>
+                      <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                  </button>
                 </div>
               </div>
 
-              <button 
-                onClick={() => {
-                  const newDomains = [...config.domains];
-                  newDomains.splice(idx, 1);
-                  updateField("domains", newDomains);
-                }}
-                className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center bg-red-500/10 text-red-400 rounded-full hover:bg-red-500/20 transition-colors"
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
-              </button>
               <Input label="Title" value={domain.title} onChange={(v) => {
                 const newDomains = [...config.domains];
                 newDomains[idx].title = v;
