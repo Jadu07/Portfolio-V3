@@ -21,7 +21,7 @@ export default function Tools({ tools = [] }: { tools?: Tool[] }) {
       </motion.h2>
 
       <div 
-        className="relative w-full max-w-[900px] overflow-hidden py-4"
+        className="relative w-full max-w-[900px] overflow-hidden pt-12 pb-4"
         style={{
           maskImage: 'linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 12.5%, rgb(0, 0, 0) 87.5%, rgba(0, 0, 0, 0) 100%)',
           WebkitMaskImage: 'linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 12.5%, rgb(0, 0, 0) 87.5%, rgba(0, 0, 0, 0) 100%)'
@@ -30,7 +30,7 @@ export default function Tools({ tools = [] }: { tools?: Tool[] }) {
         <motion.div 
           animate={{ x: ["0%", "-50%"] }}
           transition={{ ease: "linear", duration: 60, repeat: Infinity }}
-          className="flex flex-row items-center gap-[48px] w-max py-2"
+          className="flex flex-row items-center gap-[48px] w-max py-1"
         >
           {[...tools, ...tools].map((tool, idx) => (
             <div
@@ -42,8 +42,8 @@ export default function Tools({ tools = [] }: { tools?: Tool[] }) {
               </div>
 
               {/* Tooltip Badge on Hover */}
-              <div className="absolute -top-9 left-1/2 -translate-x-1/2 opacity-0 group-hover/tool:opacity-100 group-hover/tool:translate-y-0 translate-y-1 transition-all duration-200 pointer-events-none z-30 whitespace-nowrap">
-                <div className="bg-[#0f1520]/95 border border-white/15 backdrop-blur-md px-2.5 py-1 rounded-md text-[11px] font-medium text-[#e6e6e6] shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
+              <div className="absolute -top-10 left-1/2 -translate-x-1/2 opacity-0 group-hover/tool:opacity-100 group-hover/tool:translate-y-0 translate-y-1 transition-all duration-200 pointer-events-none z-50 whitespace-nowrap">
+                <div className="bg-[#0f1520] border border-white/20 backdrop-blur-md px-3 py-1 rounded-lg text-[12px] font-medium text-[#e6e6e6] shadow-[0_4px_20px_rgba(0,0,0,0.6)]">
                   {tool.name}
                 </div>
               </div>
