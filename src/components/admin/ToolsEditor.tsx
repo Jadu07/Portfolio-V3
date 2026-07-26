@@ -56,7 +56,6 @@ export const PRESET_TOOLS_LIBRARY: { name: string; slug: string; image: string; 
   { name: "Ruby on Rails", slug: "rails", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rails/rails-original-wordmark.svg", category: "Backend" },
   { name: "REST API", slug: "postman", image: "https://cdn.simpleicons.org/postman", category: "Backend" },
   { name: "GraphQL", slug: "graphql", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg", category: "Backend" },
-  { name: "gRPC", slug: "grpc", image: "https://cdn.simpleicons.org/grpc", category: "Backend" },
   { name: "Socket.IO", slug: "socketdotio", image: "https://cdn.simpleicons.org/socketdotio/white", category: "Backend" },
   { name: "WebSockets", slug: "websocket", image: "https://cdn.simpleicons.org/websocket", category: "Backend" },
   { name: "RabbitMQ", slug: "rabbitmq", image: "https://cdn.simpleicons.org/rabbitmq", category: "Backend" },
@@ -73,7 +72,6 @@ export const PRESET_TOOLS_LIBRARY: { name: string; slug: string; image: string; 
   { name: "Drizzle ORM", slug: "drizzle", image: "https://cdn.simpleicons.org/drizzle", category: "Databases" },
   { name: "Supabase", slug: "supabase", image: "https://cdn.simpleicons.org/supabase", category: "Databases" },
   { name: "Firebase", slug: "firebase", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg", category: "Databases" },
-  { name: "DynamoDB", slug: "amazondynamodb", image: "https://cdn.simpleicons.org/amazondynamodb", category: "Databases" },
   { name: "Cassandra", slug: "apachecassandra", image: "https://cdn.simpleicons.org/apachecassandra", category: "Databases" },
   { name: "TypeORM", slug: "typeorm", image: "https://cdn.simpleicons.org/typeorm", category: "Databases" },
   { name: "Mongoose", slug: "mongoose", image: "https://cdn.simpleicons.org/mongoose", category: "Databases" },
@@ -102,7 +100,6 @@ export const PRESET_TOOLS_LIBRARY: { name: string; slug: string; image: string; 
   { name: "Auth.js", slug: "auth0", image: "https://cdn.simpleicons.org/auth0", category: "Auth & Validation" },
   { name: "Zod", slug: "zod", image: "https://cdn.simpleicons.org/zod", category: "Auth & Validation" },
   { name: "React Hook Form", slug: "reacthookform", image: "https://cdn.simpleicons.org/reacthookform", category: "Auth & Validation" },
-  { name: "Joi", slug: "joi", image: "https://cdn.simpleicons.org/joi", category: "Auth & Validation" },
   { name: "Bcrypt", slug: "security", image: "https://cdn.simpleicons.org/letsencrypt", category: "Auth & Validation" },
   { name: "Passport.js", slug: "passport", image: "https://cdn.simpleicons.org/passport", category: "Auth & Validation" },
   { name: "JWT", slug: "jsonwebtokens", image: "https://cdn.simpleicons.org/jsonwebtokens", category: "Auth & Validation" },
@@ -134,7 +131,6 @@ export const PRESET_TOOLS_LIBRARY: { name: string; slug: string; image: string; 
   { name: "Swagger", slug: "swagger", image: "https://cdn.simpleicons.org/swagger", category: "Utilities" },
 
   // 9. STORAGE & FILES
-  { name: "AWS S3", slug: "amazonaws", image: "https://cdn.simpleicons.org/amazonaws", category: "Storage & Files" },
   { name: "Cloudinary", slug: "cloudinary", image: "https://cdn.simpleicons.org/cloudinary", category: "Storage & Files" },
   { name: "Supabase Storage", slug: "supabase", image: "https://cdn.simpleicons.org/supabase", category: "Storage & Files" },
   { name: "UploadThing", slug: "uploadthing", image: "https://cdn.simpleicons.org/uploadthing", category: "Storage & Files" },
@@ -142,35 +138,27 @@ export const PRESET_TOOLS_LIBRARY: { name: string; slug: string; image: string; 
 
   // 10. UI & ICONS
   { name: "Lucide Icons", slug: "lucide", image: "https://cdn.simpleicons.org/lucide", category: "UI & Icons" },
-  { name: "Heroicons", slug: "heroicons", image: "https://cdn.simpleicons.org/heroicons", category: "UI & Icons" },
   { name: "React Icons", slug: "reacticons", image: "https://cdn.simpleicons.org/react", category: "UI & Icons" },
   { name: "Font Awesome", slug: "fontawesome", image: "https://cdn.simpleicons.org/fontawesome", category: "UI & Icons" },
 
   // 11. COMMUNICATION & COLLABORATION
-  { name: "Slack", slug: "slack", image: "https://cdn.simpleicons.org/slack", category: "Collaboration" },
   { name: "Discord", slug: "discord", image: "https://cdn.simpleicons.org/discord", category: "Collaboration" },
-  { name: "Microsoft Teams", slug: "microsoftteams", image: "https://cdn.simpleicons.org/microsoftteams", category: "Collaboration" },
   { name: "Notion", slug: "notion", image: "https://cdn.simpleicons.org/notion/white", category: "Collaboration" },
   { name: "Trello", slug: "trello", image: "https://cdn.simpleicons.org/trello", category: "Collaboration" },
   { name: "Figma", slug: "figma", image: "https://cdn.simpleicons.org/figma", category: "Collaboration" },
   { name: "Linear", slug: "linear", image: "https://cdn.simpleicons.org/linear/white", category: "Collaboration" },
   { name: "Jira", slug: "jira", image: "https://cdn.simpleicons.org/jira", category: "Collaboration" },
 
-  // 12. CHARTS & DATA VISUALIZATION
+  // 12. CHARTS & MONITORING
   { name: "Recharts", slug: "recharts", image: "https://cdn.simpleicons.org/chartdotjs", category: "Charts" },
   { name: "Chart.js", slug: "chartdotjs", image: "https://cdn.simpleicons.org/chartdotjs", category: "Charts" },
-  { name: "ApexCharts", slug: "apexcharts", image: "https://cdn.simpleicons.org/apexcharts", category: "Charts" },
-  { name: "AG Grid", slug: "aggrid", image: "https://cdn.simpleicons.org/grid", category: "Charts" },
-  { name: "D3.js", slug: "d3dotjs", image: "https://cdn.simpleicons.org/d3dotjs", category: "Charts" },
-
-  // 13. MONITORING & ANALYTICS
   { name: "Sentry", slug: "sentry", image: "https://cdn.simpleicons.org/sentry", category: "Monitoring & Analytics" },
   { name: "LogRocket", slug: "logrocket", image: "https://cdn.simpleicons.org/logrocket", category: "Monitoring & Analytics" },
   { name: "Datadog", slug: "datadog", image: "https://cdn.simpleicons.org/datadog", category: "Monitoring & Analytics" },
   { name: "Google Analytics", slug: "googleanalytics", image: "https://cdn.simpleicons.org/googleanalytics", category: "Monitoring & Analytics" },
   { name: "PostHog", slug: "posthog", image: "https://cdn.simpleicons.org/posthog", category: "Monitoring & Analytics" },
 
-  // 14. CMS & CONTENT
+  // 13. CMS & CONTENT
   { name: "Contentful", slug: "contentful", image: "https://cdn.simpleicons.org/contentful", category: "CMS & Content" },
   { name: "Strapi", slug: "strapi", image: "https://cdn.simpleicons.org/strapi", category: "CMS & Content" },
   { name: "Sanity", slug: "sanity", image: "https://cdn.simpleicons.org/sanity", category: "CMS & Content" },
@@ -178,16 +166,15 @@ export const PRESET_TOOLS_LIBRARY: { name: string; slug: string; image: string; 
   { name: "Payload CMS", slug: "payloadcms", image: "https://cdn.simpleicons.org/payloadcms/white", category: "CMS & Content" },
   { name: "WordPress", slug: "wordpress", image: "https://cdn.simpleicons.org/wordpress", category: "CMS & Content" },
 
-  // 15. AI/ML & APIS
+  // 14. AI/ML & APIS
   { name: "OpenAI", slug: "openai", image: "https://cdn.simpleicons.org/openai/white", category: "AI / ML" },
   { name: "Gemini (Google AI)", slug: "googlegemini", image: "https://cdn.simpleicons.org/googlegemini", category: "AI / ML" },
   { name: "Hugging Face", slug: "huggingface", image: "https://cdn.simpleicons.org/huggingface", category: "AI / ML" },
   { name: "LangChain", slug: "langchain", image: "https://cdn.simpleicons.org/langchain", category: "AI / ML" },
-  { name: "Pinecone", slug: "pinecone", image: "https://cdn.simpleicons.org/pinecone", category: "AI / ML" },
   { name: "PyTorch", slug: "pytorch", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg", category: "AI / ML" },
   { name: "TensorFlow", slug: "tensorflow", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg", category: "AI / ML" },
 
-  // 16. OPERATING SYSTEMS & BROWSERS
+  // 15. OPERATING SYSTEMS & BROWSERS
   { name: "Windows", slug: "windows", image: "https://cdn.simpleicons.org/windows11", category: "OS & Browsers" },
   { name: "macOS", slug: "apple", image: "https://cdn.simpleicons.org/apple/white", category: "OS & Browsers" },
   { name: "Linux", slug: "linux", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg", category: "OS & Browsers" },
@@ -197,7 +184,7 @@ export const PRESET_TOOLS_LIBRARY: { name: string; slug: string; image: string; 
   { name: "Safari", slug: "safari", image: "https://cdn.simpleicons.org/safari", category: "OS & Browsers" },
   { name: "Brave", slug: "brave", image: "https://cdn.simpleicons.org/brave", category: "OS & Browsers" },
 
-  // 17. LANGUAGES
+  // 16. LANGUAGES
   { name: "Python", slug: "python", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg", category: "Languages" },
   { name: "Java", slug: "java", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg", category: "Languages" },
   { name: "C++", slug: "cplusplus", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg", category: "Languages" },
@@ -212,8 +199,8 @@ export const PRESET_TOOLS_LIBRARY: { name: string; slug: string; image: string; 
 
 export default function ToolsEditor({ config, onUpdate }: ToolsEditorProps) {
   const tools: Tool[] = (config.tools && config.tools.length > 0)
-    ? config.tools.map(t => ({ ...t, isEnabled: t.isEnabled !== false }))
-    : PRESET_TOOLS_LIBRARY.slice(0, 30).map(p => ({ ...p, isEnabled: true }));
+    ? config.tools
+    : PRESET_TOOLS_LIBRARY.slice(0, 30);
 
   const [search, setSearch] = useState("");
   const [librarySearch, setLibrarySearch] = useState("");
@@ -233,21 +220,25 @@ export default function ToolsEditor({ config, onUpdate }: ToolsEditorProps) {
     onUpdate({ ...config, tools: updatedTools });
   };
 
-  const handleToggleEnable = (index: number) => {
-    const updatedTools = [...tools];
-    updatedTools[index] = { ...updatedTools[index], isEnabled: !updatedTools[index].isEnabled };
-    onUpdate({ ...config, tools: updatedTools });
-  };
-
   const handleAddCustomTool = () => {
-    const newTool: Tool = { name: "New Tool", slug: "new-tool", image: "https://cdn.simpleicons.org/code/white", isEnabled: true };
+    const newTool: Tool = { name: "New Tool", slug: "new-tool", image: "https://cdn.simpleicons.org/code/white" };
     onUpdate({ ...config, tools: [...tools, newTool] });
   };
 
   const handleAddPreset = (preset: typeof PRESET_TOOLS_LIBRARY[0]) => {
     if (tools.some(t => t.name.toLowerCase() === preset.name.toLowerCase())) return;
-    const newTool: Tool = { name: preset.name, slug: preset.slug, image: preset.image, isEnabled: true, category: preset.category };
+    const newTool: Tool = { name: preset.name, slug: preset.slug, image: preset.image, category: preset.category };
     onUpdate({ ...config, tools: [...tools, newTool] });
+  };
+
+  const handleTogglePreset = (preset: typeof PRESET_TOOLS_LIBRARY[0]) => {
+    const exists = tools.some(t => t.name.toLowerCase() === preset.name.toLowerCase());
+    if (exists) {
+      const updatedTools = tools.filter(t => t.name.toLowerCase() !== preset.name.toLowerCase());
+      onUpdate({ ...config, tools: updatedTools });
+    } else {
+      handleAddPreset(preset);
+    }
   };
 
   const handleAddAllFromCategory = (cat: string) => {
@@ -255,7 +246,7 @@ export default function ToolsEditor({ config, onUpdate }: ToolsEditorProps) {
     const newTools = [...tools];
     categoryPresets.forEach(preset => {
       if (!newTools.some(t => t.name.toLowerCase() === preset.name.toLowerCase())) {
-        newTools.push({ name: preset.name, slug: preset.slug, image: preset.image, isEnabled: true, category: preset.category });
+        newTools.push({ name: preset.name, slug: preset.slug, image: preset.image, category: preset.category });
       }
     });
     onUpdate({ ...config, tools: newTools });
@@ -282,14 +273,9 @@ export default function ToolsEditor({ config, onUpdate }: ToolsEditorProps) {
     }
   };
 
-  const handleEnableAll = (enable: boolean) => {
-    const updatedTools = tools.map(t => ({ ...t, isEnabled: enable }));
-    onUpdate({ ...config, tools: updatedTools });
-  };
-
   const handleResetDefaults = () => {
-    if (confirm("Reset tools list back to 200+ curated presets library?")) {
-      const defaultList = PRESET_TOOLS_LIBRARY.slice(0, 35).map(p => ({ ...p, isEnabled: true }));
+    if (confirm("Reset tools stack back to default preset list?")) {
+      const defaultList = PRESET_TOOLS_LIBRARY.slice(0, 30);
       onUpdate({ ...config, tools: defaultList });
     }
   };
@@ -298,50 +284,49 @@ export default function ToolsEditor({ config, onUpdate }: ToolsEditorProps) {
 
   return (
     <div className="flex flex-col gap-6">
-      {/* Top Header & Action Buttons */}
+      {/* Header & Main Actions */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pb-4 border-b border-white/10">
         <div>
-          <h2 className="text-xl font-semibold text-white">Tools Marquee (200+ Library)</h2>
-          <p className="text-xs text-white/50 mt-1">
-            Active: {tools.length} | Visible on Website: {tools.filter(t => t.isEnabled !== false).length}
+          <h2 className="text-xl font-semibold text-[#e6e6e6]">Tools Stack</h2>
+          <p className="text-xs text-white/50 mt-0.5">
+            Active Marquee Stack: {tools.length} Tools
           </p>
         </div>
 
         <div className="flex flex-wrap items-center gap-2">
           <button
             onClick={() => setShowLibrary(!showLibrary)}
-            className="bg-blue-600 hover:bg-blue-500 text-white px-3.5 py-2 rounded-lg text-xs font-medium transition-all flex items-center gap-1.5 shadow-lg shadow-blue-600/20"
+            className="bg-white/10 hover:bg-white/15 text-white px-3.5 py-2 rounded-xl text-xs font-medium transition-all flex items-center gap-2 border border-white/10"
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 5v14M5 12h14"/></svg>
-            Preset Library ({PRESET_TOOLS_LIBRARY.length} Tools)
+            Select from Preset Library ({PRESET_TOOLS_LIBRARY.length})
           </button>
           <button
             onClick={handleAddCustomTool}
-            className="bg-white/15 hover:bg-white/20 text-white px-3.5 py-2 rounded-lg text-xs font-medium transition-all flex items-center gap-1.5 border border-white/15"
+            className="bg-white text-black hover:bg-white/90 px-3.5 py-2 rounded-xl text-xs font-medium transition-all flex items-center gap-1.5"
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 5v14M5 12h14"/></svg>
-            + Custom Tool
+            Add Custom Tool
           </button>
         </div>
       </div>
 
-      {/* Preset Library Quick Add Drawer */}
+      {/* Preset Library Selection Drawer */}
       {showLibrary && (
-        <div className="bg-[#111622] p-5 rounded-2xl border border-blue-500/40 flex flex-col gap-4 shadow-2xl">
+        <div className="bg-[#131a26] p-5 rounded-2xl border border-white/10 flex flex-col gap-4">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div>
-              <h3 className="font-semibold text-sm text-blue-400 flex items-center gap-2">
-                <span>📚 200+ Pre-Hardcoded Tools Library</span>
+              <h3 className="font-medium text-sm text-[#e6e6e6]">
+                Preset Tools Library (Click to Add / Remove)
               </h3>
-              <p className="text-xs text-white/40 mt-0.5">Click any tool to add it immediately to your marquee stack.</p>
             </div>
             
             <div className="flex items-center gap-2">
               <button
                 onClick={() => handleAddAllFromCategory(filterCategory)}
-                className="text-xs bg-blue-500/20 text-blue-300 hover:bg-blue-500/30 px-3 py-1.5 rounded-lg border border-blue-500/30 transition-all font-medium"
+                className="text-xs bg-white/10 text-white hover:bg-white/15 px-3 py-1.5 rounded-lg border border-white/10 transition-all font-medium"
               >
-                + Add All {filterCategory !== "All" ? filterCategory : "200+"} Tools
+                + Add All {filterCategory !== "All" ? filterCategory : "Library"} Tools
               </button>
               <button onClick={() => setShowLibrary(false)} className="text-xs text-white/50 hover:text-white px-2 py-1">
                 Close ✕
@@ -352,22 +337,22 @@ export default function ToolsEditor({ config, onUpdate }: ToolsEditorProps) {
           {/* Search Library */}
           <input
             type="text"
-            placeholder="Search preset tools library (e.g., Supabase, Docker, Framer Motion, Redis)..."
+            placeholder="Search library tools (e.g. Next.js, Docker, Tailwind)..."
             value={librarySearch}
             onChange={(e) => setLibrarySearch(e.target.value)}
-            className="bg-black/60 border border-blue-500/30 rounded-lg px-3.5 py-2 text-xs text-white focus:outline-none focus:border-blue-400 w-full"
+            className="bg-[#0a0e14] border border-white/10 rounded-xl px-3.5 py-2 text-xs text-white focus:outline-none focus:border-white/30 w-full"
           />
 
           {/* Category Filter Pills */}
-          <div className="flex flex-wrap gap-1.5 max-h-[90px] overflow-y-auto pr-1">
+          <div className="flex flex-wrap gap-1.5 max-h-[85px] overflow-y-auto pr-1">
             {categories.map(cat => (
               <button
                 key={cat}
                 onClick={() => setFilterCategory(cat)}
-                className={`px-3 py-1 rounded-md text-xs font-medium transition-all ${
+                className={`px-3 py-1 rounded-lg text-xs font-medium transition-all ${
                   filterCategory === cat 
-                    ? "bg-blue-500 text-white shadow" 
-                    : "bg-white/5 text-white/60 hover:text-white hover:bg-white/10"
+                    ? "bg-white text-black" 
+                    : "bg-[#0a0e14] text-white/60 hover:text-white border border-white/5"
                 }`}
               >
                 {cat}
@@ -375,8 +360,8 @@ export default function ToolsEditor({ config, onUpdate }: ToolsEditorProps) {
             ))}
           </div>
 
-          {/* Grid of 200+ Tools */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 max-h-[320px] overflow-y-auto pr-1 pt-1 border-t border-white/10">
+          {/* Grid of Preset Tools */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 max-h-[300px] overflow-y-auto pr-1 pt-1 border-t border-white/10">
             {PRESET_TOOLS_LIBRARY
               .filter(p => filterCategory === "All" || p.category === filterCategory)
               .filter(p => p.name.toLowerCase().includes(librarySearch.toLowerCase()))
@@ -385,17 +370,16 @@ export default function ToolsEditor({ config, onUpdate }: ToolsEditorProps) {
                 return (
                   <button
                     key={pIdx}
-                    onClick={() => handleAddPreset(preset)}
-                    disabled={isAdded}
-                    className={`flex items-center gap-2 p-2 rounded-lg border text-left text-xs transition-all ${
+                    onClick={() => handleTogglePreset(preset)}
+                    className={`flex items-center gap-2 p-2 rounded-xl border text-left text-xs transition-all ${
                       isAdded 
-                        ? "bg-white/[0.02] border-white/5 opacity-35 cursor-not-allowed text-white/30" 
-                        : "bg-white/5 border-white/10 hover:bg-blue-500/20 hover:border-blue-500/40 text-white"
+                        ? "bg-white/15 border-white/20 text-white font-medium" 
+                        : "bg-[#0a0e14] border-white/5 hover:bg-white/5 hover:border-white/15 text-white/70"
                     }`}
                   >
                     <img src={preset.image} alt={preset.name} className="w-4 h-4 object-contain shrink-0" />
-                    <span className="truncate flex-1 font-medium">{preset.name}</span>
-                    <span className="text-[10px] font-bold text-white/40">{isAdded ? "ADDED" : "+ ADD"}</span>
+                    <span className="truncate flex-1">{preset.name}</span>
+                    <span className="text-[11px] font-bold">{isAdded ? "✓" : "+"}</span>
                   </button>
                 );
               })}
@@ -403,70 +387,43 @@ export default function ToolsEditor({ config, onUpdate }: ToolsEditorProps) {
         </div>
       )}
 
-      {/* Global Actions Bar */}
+      {/* Stack Search & Controls Bar */}
       <div className="flex flex-col sm:flex-row justify-between items-center gap-3">
         <input
           type="text"
-          placeholder="Search your tools list..."
+          placeholder="Filter active stack..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="bg-black/50 border border-white/10 rounded-lg px-3.5 py-2 text-xs text-white focus:outline-none focus:border-white/30 w-full sm:w-[260px]"
+          className="bg-[#0a0e14] border border-white/10 rounded-xl px-3.5 py-2 text-xs text-white focus:outline-none focus:border-white/30 w-full sm:w-[260px]"
         />
 
-        <div className="flex items-center gap-2 self-end sm:self-auto">
-          <button
-            onClick={() => handleEnableAll(true)}
-            className="text-xs text-white/70 hover:text-white bg-white/5 hover:bg-white/10 px-3 py-1.5 rounded-lg border border-white/10 transition-all"
-          >
-            Enable All
-          </button>
-          <button
-            onClick={() => handleEnableAll(false)}
-            className="text-xs text-white/70 hover:text-white bg-white/5 hover:bg-white/10 px-3 py-1.5 rounded-lg border border-white/10 transition-all"
-          >
-            Disable All
-          </button>
-          <button
-            onClick={handleResetDefaults}
-            className="text-xs text-red-400 hover:text-red-300 bg-red-500/10 hover:bg-red-500/20 px-3 py-1.5 rounded-lg border border-red-500/20 transition-all"
-          >
-            Restore Defaults
-          </button>
-        </div>
+        <button
+          onClick={handleResetDefaults}
+          className="text-xs text-red-400 hover:text-red-300 bg-red-500/10 hover:bg-red-500/20 px-3 py-1.5 rounded-lg border border-red-500/20 transition-all self-end sm:self-auto"
+        >
+          Restore Defaults
+        </button>
       </div>
 
-      {/* Tools Cards List */}
+      {/* Tools Stack Cards List */}
       <div className="flex flex-col gap-3">
         {filteredTools.map((tool, index) => {
           const originalIndex = tools.findIndex(t => t.name === tool.name && t.image === tool.image);
           const idx = originalIndex !== -1 ? originalIndex : index;
-          const isEnabled = tool.isEnabled !== false;
 
           return (
             <div 
               key={idx} 
-              className={`p-4 rounded-xl border flex flex-col gap-4 group transition-all ${
-                isEnabled 
-                  ? "bg-white/5 border-white/10 hover:border-white/20" 
-                  : "bg-white/[0.02] border-white/5 opacity-60 hover:opacity-100"
-              }`}
+              className="bg-white/5 p-4 rounded-xl border border-white/10 flex flex-col gap-4 group hover:border-white/20 transition-all"
             >
-              {/* Header */}
+              {/* Card Header */}
               <div className="flex justify-between items-center">
                 <div className="flex items-center gap-3">
-                  <label className="flex items-center gap-2 cursor-pointer">
-                    <input
-                      type="checkbox"
-                      checked={isEnabled}
-                      onChange={() => handleToggleEnable(idx)}
-                      className="w-4 h-4 accent-emerald-500 rounded cursor-pointer"
-                    />
-                    <span className={`text-xs font-semibold uppercase tracking-wider px-2 py-0.5 rounded ${
-                      isEnabled ? "bg-emerald-500/20 text-emerald-400" : "bg-white/10 text-white/40"
-                    }`}>
-                      {isEnabled ? "Enabled" : "Disabled"}
-                    </span>
-                  </label>
+                  {tool.image ? (
+                    <img src={tool.image} alt={tool.name} className="w-6 h-6 object-contain opacity-90 shrink-0" />
+                  ) : (
+                    <span className="w-6 h-6 rounded bg-white/10 flex items-center justify-center text-xs text-white/50">#</span>
+                  )}
                   <h3 className="font-medium text-white/90 text-sm">
                     {tool.name || `Tool #${idx + 1}`}
                   </h3>
@@ -492,7 +449,7 @@ export default function ToolsEditor({ config, onUpdate }: ToolsEditorProps) {
                   <button
                     onClick={() => handleRemoveTool(idx)}
                     className="p-1.5 text-red-400 hover:bg-red-500/10 rounded-lg transition-colors ml-1"
-                    title="Delete Tool"
+                    title="Remove Tool"
                   >
                     <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none">
                       <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -502,10 +459,10 @@ export default function ToolsEditor({ config, onUpdate }: ToolsEditorProps) {
                 </div>
               </div>
 
-              {/* Input Form Fields */}
+              {/* Form Input Fields */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="flex flex-col gap-2">
-                  <label className="text-sm text-white/60">Tool Name</label>
+                  <label className="text-xs text-white/60">Tool Name</label>
                   <input
                     type="text"
                     value={tool.name}
@@ -515,7 +472,7 @@ export default function ToolsEditor({ config, onUpdate }: ToolsEditorProps) {
                   />
                 </div>
                 <div className="flex flex-col gap-2">
-                  <label className="text-sm text-white/60">Icon URL (SVG / PNG / devicon / simpleicons)</label>
+                  <label className="text-xs text-white/60">Icon Image URL</label>
                   <input
                     type="text"
                     value={tool.image}
@@ -525,21 +482,13 @@ export default function ToolsEditor({ config, onUpdate }: ToolsEditorProps) {
                   />
                 </div>
               </div>
-
-              {/* Icon Preview */}
-              {tool.image && (
-                <div className="flex items-center gap-3 p-2.5 bg-black/40 rounded-lg border border-white/5 shrink-0">
-                  <span className="text-xs text-white/40">Preview Icon:</span>
-                  <img src={tool.image} alt={tool.name} className="w-6 h-6 object-contain opacity-90" />
-                </div>
-              )}
             </div>
           );
         })}
 
         {filteredTools.length === 0 && (
           <div className="text-center py-12 text-white/40 bg-white/5 rounded-xl border border-white/10 border-dashed flex flex-col gap-2 items-center">
-            <span>No tools match your filter.</span>
+            <span>No tools in stack matching your search.</span>
             <button onClick={handleAddCustomTool} className="text-xs text-blue-400 hover:underline">
               Add a new custom tool
             </button>

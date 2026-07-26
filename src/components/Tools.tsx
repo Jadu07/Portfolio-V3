@@ -6,8 +6,7 @@ import Image from "next/image";
 import { Tool } from "@/lib/projects";
 
 export default function Tools({ tools = [] }: { tools?: Tool[] }) {
-  const enabledTools = tools.filter((t) => t.isEnabled !== false);
-  if (!enabledTools || enabledTools.length === 0) return null;
+  if (!tools || tools.length === 0) return null;
 
   return (
     <section className="w-full flex flex-col items-center justify-center my-[20px] md:my-[40px]">
@@ -33,7 +32,7 @@ export default function Tools({ tools = [] }: { tools?: Tool[] }) {
           transition={{ ease: "linear", duration: 60, repeat: Infinity }}
           className="flex flex-row items-center gap-[48px] w-max"
         >
-          {[...enabledTools, ...enabledTools].map((tool, idx) => (
+          {[...tools, ...tools].map((tool, idx) => (
             <div
               key={idx}
               className="w-[50px] h-[50px] shrink-0 flex items-center justify-center hover:scale-110 transition-all duration-300 opacity-90 hover:opacity-100 cursor-pointer"
