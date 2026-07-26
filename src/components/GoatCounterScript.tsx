@@ -3,8 +3,7 @@
 import Script from "next/script";
 
 export default function GoatCounterScript() {
-  const code = process.env.NEXT_PUBLIC_GOATCOUNTER_CODE || process.env.GOATCOUNTER_CODE;
-  if (!code) return null;
+  const code = process.env.NEXT_PUBLIC_GOATCOUNTER_CODE || process.env.GOATCOUNTER_CODE || "jadu07";
 
   return (
     <Script
