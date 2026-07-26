@@ -24,8 +24,8 @@ export default function Footer({ config }: { config: HomeConfig }) {
       )}
       
       {/* Footer Text (Contact + Copyright) */}
-      <div className="flex flex-col items-center justify-center gap-[8px] text-[#b3c2cb] text-[12px] font-normal" style={{ fontFamily: '"Satoshi", sans-serif' }}>
-        <div className="flex items-center gap-[8px]">
+      <div className="flex flex-col items-center justify-center gap-[8px] text-[#b3c2cb] text-[12px] font-normal px-4 text-center" style={{ fontFamily: '"Satoshi", sans-serif' }}>
+        <div className="flex flex-wrap items-center justify-center gap-[8px]">
           <a href={`tel:${config.contact.phone.replace(/[^0-9+]/g, '')}`} className="hover:text-white transition-colors">
             {config.contact.phone}
           </a>
@@ -34,7 +34,7 @@ export default function Footer({ config }: { config: HomeConfig }) {
             {config.contact.email}
           </a>
         </div>
-        <p>
+        <p className="text-center leading-relaxed">
           {config.contact.copyright}
         </p>
       </div>

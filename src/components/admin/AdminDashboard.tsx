@@ -7,13 +7,14 @@ import ConfigEditor from "./ConfigEditor";
 import ProjectsEditor from "./ProjectsEditor";
 import AboutEditor from "./AboutEditor";
 import ToolsEditor from "./ToolsEditor";
+import EasterEggEditor from "./EasterEggEditor";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 export default function AdminDashboard({ initialData }: { initialData: GistData }) {
   const [data, setData] = useState<GistData>(initialData);
   const [history, setHistory] = useState<GistData[]>([]);
-  const [activeTab, setActiveTab] = useState<"config" | "projects" | "about" | "tools">("config");
+  const [activeTab, setActiveTab] = useState<"config" | "projects" | "about" | "tools" | "easter-egg">("config");
   const [isSaving, setIsSaving] = useState(false);
   const [saveStatus, setSaveStatus] = useState<"idle" | "success" | "error">("idle");
 
@@ -202,6 +203,7 @@ export default function AdminDashboard({ initialData }: { initialData: GistData 
           <TabButton active={activeTab === "projects"} onClick={() => setActiveTab("projects")} label="Projects" />
           <TabButton active={activeTab === "about"} onClick={() => setActiveTab("about")} label="About Me" />
           <TabButton active={activeTab === "tools"} onClick={() => setActiveTab("tools")} label="Tools" />
+          <TabButton active={activeTab === "easter-egg"} onClick={() => setActiveTab("easter-egg")} label="Easter Egg Quotes" />
         </aside>
 
         {/* Editor Area */}
@@ -211,6 +213,7 @@ export default function AdminDashboard({ initialData }: { initialData: GistData 
             {activeTab === "projects" && <ProjectsEditor projects={data.projects} onChange={(p) => handleUpdate("projects", p)} />}
             {activeTab === "about" && data.about && <AboutEditor about={data.about} onChange={(a) => handleUpdate("about", a)} />}
             {activeTab === "tools" && data.config && <ToolsEditor config={data.config} onUpdate={(c) => handleUpdate("config", c)} />}
+            {activeTab === "easter-egg" && data.config && <EasterEggEditor config={data.config} onUpdate={(c) => handleUpdate("config", c)} />}
           </div>
         </main>
       </div>

@@ -25,6 +25,16 @@ export default function Navbar({ config }: { config: HomeConfig }) {
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
 
+  const handleNameClick = () => {
+    closeMenu();
+    if (typeof window !== "undefined") {
+      if (window.scrollY > 0) {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+      window.dispatchEvent(new CustomEvent("name-clicked"));
+    }
+  };
+
   return (
     <>
       <nav className="relative mt-[15px] z-[60] w-full flex justify-center">
@@ -36,8 +46,8 @@ export default function Navbar({ config }: { config: HomeConfig }) {
           <div className="font-small text-[16px] text-white tracking-[0.5px] z-[60] flex items-center">
             <Link 
               href="/" 
-              onClick={closeMenu} 
-              className="hover:text-[rgba(230,230,230,0.6)] transition-colors flex items-center"
+              onClick={handleNameClick} 
+              className="hover:text-[rgba(230,230,230,0.6)] transition-colors flex items-center cursor-pointer select-none"
             >
               {config.name}
             </Link>

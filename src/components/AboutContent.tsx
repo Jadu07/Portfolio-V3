@@ -21,14 +21,23 @@ export default function AboutContent({ data }: { data: AboutData | null }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="flex flex-row justify-between w-full max-w-[600px] mx-auto px-4 flex-wrap gap-4 sm:gap-0"
+            className="w-full max-w-[600px] mx-auto px-4"
           >
-            {data.stats.map((stat, idx) => (
-              <div key={idx} className="flex flex-col gap-1 text-center sm:text-left min-w-[120px]">
-                <span className="text-[12px] text-[#b3c2cb] font-medium">{stat.label}</span>
-                <span className="text-[32px] sm:text-[46px] font-normal text-[#e6e6e6] leading-[1.2]">{stat.value}</span>
-              </div>
-            ))}
+            <div className="grid grid-cols-2 sm:flex sm:flex-row sm:justify-between gap-6 sm:gap-0 items-center justify-items-center">
+              {data.stats.map((stat, idx) => (
+                <div 
+                  key={idx} 
+                  className={`flex flex-col gap-1 text-center sm:text-left min-w-[120px] ${
+                    data.stats.length === 3 && idx === 2 
+                      ? 'col-span-2 justify-self-center sm:col-span-1' 
+                      : ''
+                  }`}
+                >
+                  <span className="text-[12px] text-[#b3c2cb] font-medium">{stat.label}</span>
+                  <span className="text-[32px] sm:text-[46px] font-normal text-[#e6e6e6] leading-[1.2]">{stat.value}</span>
+                </div>
+              ))}
+            </div>
           </motion.div>
         )}
 

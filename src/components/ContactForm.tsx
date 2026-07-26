@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Mail, Phone } from "lucide-react";
 import { HomeConfig } from "@/lib/projects";
 
 export default function ContactForm({ config }: { config: HomeConfig }) {
@@ -117,22 +116,8 @@ export default function ContactForm({ config }: { config: HomeConfig }) {
                   Sending...
                 </span>
               )}
-              {status === "success" && "Message Sent!"}
             </button>
           </form>
-
-          {/* Contact Info */}
-          <div className="mt-[32px] pt-[24px] border-t border-white/5 flex flex-col md:flex-row items-center justify-center gap-[16px] md:gap-[32px] text-[#a1a1aa] text-[15px]">
-            <a href={`tel:${config.contact.phone.replace(/[^0-9+]/g, '')}`} className="flex items-center gap-[8px] hover:text-[#e6e6e6] transition-colors">
-              <Phone className="w-4 h-4" />
-              {config.contact.phone}
-            </a>
-            <span className="hidden md:block w-[4px] h-[4px] rounded-full bg-[#a1a1aa]/30"></span>
-            <a href={`mailto:${config.contact.email}`} className="flex items-center gap-[8px] hover:text-[#e6e6e6] transition-colors">
-              <Mail className="w-4 h-4" />
-              {config.contact.email}
-            </a>
-          </div>
         </div>
       </motion.div>
     </section>

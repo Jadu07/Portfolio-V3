@@ -18,7 +18,7 @@ export default async function Home() {
     <main className="relative min-h-screen flex flex-col items-center w-full max-w-[1080px] mx-auto px-[16px] md:px-[32px] py-[32px] gap-[48px]">
       <div className="relative z-10 flex flex-col items-center w-full gap-[48px]">
         {/* Hero Section */}
-        <Hero config={config.hero} />
+        <Hero config={config.hero} easterEggQuotes={config.easterEggQuotes} />
         <DomainTiles config={config.domains} />
 
         {/* Selected Work */}
