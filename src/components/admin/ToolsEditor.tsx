@@ -175,12 +175,10 @@ export const PRESET_TOOLS_LIBRARY: { name: string; slug: string; image: string; 
   { name: "TensorFlow", slug: "tensorflow", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg", category: "AI / ML" },
 
   // 15. OPERATING SYSTEMS & BROWSERS
-  { name: "Windows", slug: "windows", image: "https://cdn.simpleicons.org/windows11", category: "OS & Browsers" },
   { name: "macOS", slug: "apple", image: "https://cdn.simpleicons.org/apple/white", category: "OS & Browsers" },
   { name: "Linux", slug: "linux", image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg", category: "OS & Browsers" },
   { name: "Chrome", slug: "googlechrome", image: "https://cdn.simpleicons.org/googlechrome", category: "OS & Browsers" },
   { name: "Firefox", slug: "firefox", image: "https://cdn.simpleicons.org/firefox", category: "OS & Browsers" },
-  { name: "Edge", slug: "microsoftedge", image: "https://cdn.simpleicons.org/microsoftedge", category: "OS & Browsers" },
   { name: "Safari", slug: "safari", image: "https://cdn.simpleicons.org/safari", category: "OS & Browsers" },
   { name: "Brave", slug: "brave", image: "https://cdn.simpleicons.org/brave", category: "OS & Browsers" },
 
@@ -296,14 +294,14 @@ export default function ToolsEditor({ config, onUpdate }: ToolsEditorProps) {
         <div className="flex flex-wrap items-center gap-2">
           <button
             onClick={() => setShowLibrary(!showLibrary)}
-            className="bg-white/10 hover:bg-white/15 text-white px-3.5 py-2 rounded-xl text-xs font-medium transition-all flex items-center gap-2 border border-white/10"
+            className="bg-white/10 hover:bg-white/15 text-white px-4 py-2.5 rounded-xl text-xs font-medium transition-all flex items-center gap-2 border border-white/10"
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 5v14M5 12h14"/></svg>
             Select from Preset Library ({PRESET_TOOLS_LIBRARY.length})
           </button>
           <button
             onClick={handleAddCustomTool}
-            className="bg-white text-black hover:bg-white/90 px-3.5 py-2 rounded-xl text-xs font-medium transition-all flex items-center gap-1.5"
+            className="bg-white text-black hover:bg-white/90 px-4 py-2.5 rounded-xl text-xs font-medium transition-all flex items-center gap-1.5"
           >
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 5v14M5 12h14"/></svg>
             Add Custom Tool
@@ -313,12 +311,13 @@ export default function ToolsEditor({ config, onUpdate }: ToolsEditorProps) {
 
       {/* Preset Library Selection Drawer */}
       {showLibrary && (
-        <div className="bg-[#131a26] p-5 rounded-2xl border border-white/10 flex flex-col gap-4">
+        <div className="bg-[#0a0e14] p-6 rounded-2xl border border-white/10 flex flex-col gap-5 shadow-2xl">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div>
-              <h3 className="font-medium text-sm text-[#e6e6e6]">
-                Preset Tools Library (Click to Add / Remove)
+              <h3 className="font-medium text-base text-[#e6e6e6]">
+                Preset Tools Library
               </h3>
+              <p className="text-xs text-white/40 mt-0.5">Click any tool pill to add or remove it from your marquee stack.</p>
             </div>
             
             <div className="flex items-center gap-2">
@@ -328,7 +327,7 @@ export default function ToolsEditor({ config, onUpdate }: ToolsEditorProps) {
               >
                 + Add All {filterCategory !== "All" ? filterCategory : "Library"} Tools
               </button>
-              <button onClick={() => setShowLibrary(false)} className="text-xs text-white/50 hover:text-white px-2 py-1">
+              <button onClick={() => setShowLibrary(false)} className="text-xs text-white/50 hover:text-white px-2.5 py-1.5 rounded-lg hover:bg-white/5 transition-all">
                 Close ✕
               </button>
             </div>
@@ -340,19 +339,19 @@ export default function ToolsEditor({ config, onUpdate }: ToolsEditorProps) {
             placeholder="Search library tools (e.g. Next.js, Docker, Tailwind)..."
             value={librarySearch}
             onChange={(e) => setLibrarySearch(e.target.value)}
-            className="bg-[#0a0e14] border border-white/10 rounded-xl px-3.5 py-2 text-xs text-white focus:outline-none focus:border-white/30 w-full"
+            className="bg-[#05080c] border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-white/30 w-full"
           />
 
           {/* Category Filter Pills */}
-          <div className="flex flex-wrap gap-1.5 max-h-[85px] overflow-y-auto pr-1">
+          <div className="flex flex-wrap gap-1.5 max-h-[95px] overflow-y-auto pr-1">
             {categories.map(cat => (
               <button
                 key={cat}
                 onClick={() => setFilterCategory(cat)}
-                className={`px-3 py-1 rounded-lg text-xs font-medium transition-all ${
+                className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
                   filterCategory === cat 
-                    ? "bg-white text-black" 
-                    : "bg-[#0a0e14] text-white/60 hover:text-white border border-white/5"
+                    ? "bg-white text-black font-semibold" 
+                    : "bg-white/5 text-white/60 hover:text-white border border-white/5 hover:border-white/10"
                 }`}
               >
                 {cat}
@@ -361,7 +360,7 @@ export default function ToolsEditor({ config, onUpdate }: ToolsEditorProps) {
           </div>
 
           {/* Grid of Preset Tools */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 max-h-[300px] overflow-y-auto pr-1 pt-1 border-t border-white/10">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 max-h-[320px] overflow-y-auto pr-1 pt-2 border-t border-white/10">
             {PRESET_TOOLS_LIBRARY
               .filter(p => filterCategory === "All" || p.category === filterCategory)
               .filter(p => p.name.toLowerCase().includes(librarySearch.toLowerCase()))
@@ -371,15 +370,17 @@ export default function ToolsEditor({ config, onUpdate }: ToolsEditorProps) {
                   <button
                     key={pIdx}
                     onClick={() => handleTogglePreset(preset)}
-                    className={`flex items-center gap-2 p-2 rounded-xl border text-left text-xs transition-all ${
+                    className={`flex items-center gap-2.5 p-2.5 rounded-xl border text-left text-xs transition-all group ${
                       isAdded 
-                        ? "bg-white/15 border-white/20 text-white font-medium" 
-                        : "bg-[#0a0e14] border-white/5 hover:bg-white/5 hover:border-white/15 text-white/70"
+                        ? "bg-white/15 border-white/30 text-white font-medium shadow-sm" 
+                        : "bg-[#05080c] border-white/10 hover:bg-white/5 hover:border-white/20 text-white/70 hover:text-white"
                     }`}
                   >
                     <img src={preset.image} alt={preset.name} className="w-4 h-4 object-contain shrink-0" />
-                    <span className="truncate flex-1">{preset.name}</span>
-                    <span className="text-[11px] font-bold">{isAdded ? "✓" : "+"}</span>
+                    <span className="truncate flex-1 font-medium">{preset.name}</span>
+                    <span className={`text-[11px] font-bold ${isAdded ? "text-emerald-400" : "text-white/40 group-hover:text-white"}`}>
+                      {isAdded ? "✓" : "+"}
+                    </span>
                   </button>
                 );
               })}
