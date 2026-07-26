@@ -343,7 +343,7 @@ export default function AboutEditor({ about, onChange }: { about: AboutData, onC
               }} />
 
               <div className="flex flex-col gap-2">
-                <label className="text-sm text-[#a1a1aa]">Skills in this category</label>
+                <label className="text-sm text-white/60">Skills in this category</label>
                 <div className="flex flex-wrap gap-2">
                   {skillGroup.items.map((item, itemIdx) => (
                     <div key={itemIdx} className="bg-[#0a0e14] border border-white/10 px-3 py-1 rounded-full flex items-center gap-2 text-sm">

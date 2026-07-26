@@ -164,26 +164,26 @@ export default function ProjectsEditor({ projects, onChange }: { projects: Proje
                       <Input label="Title" value={proj.title} onChange={(v) => updateProject(proj.id, "title", v)} />
                       <Textarea label="Description" value={proj.desc} onChange={(v) => updateProject(proj.id, "desc", v)} />
                       <div className="flex flex-col gap-2">
-                        <label className="text-sm text-[#a1a1aa]">Content Horizontal Alignment</label>
+                        <label className="text-sm text-white/60">Content Horizontal Alignment</label>
                         <select 
                           value={proj.contentAlign || "left"} 
                           onChange={(e) => updateProject(proj.id, "contentAlign", e.target.value)}
-                          className="bg-[#0a0e14] border border-white/10 rounded-xl px-4 py-3 text-[#e6e6e6] focus:outline-none focus:border-white/30 transition-colors w-full"
+                          className="bg-black/50 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-white/30 transition-colors w-full"
                         >
-                          <option value="left">Left</option>
-                          <option value="center">Center</option>
-                          <option value="right">Right</option>
+                          <option value="left" className="bg-[#0f1520]">Left</option>
+                          <option value="center" className="bg-[#0f1520]">Center</option>
+                          <option value="right" className="bg-[#0f1520]">Right</option>
                         </select>
                       </div>
                       <div className="flex flex-col gap-2">
-                        <label className="text-sm text-[#a1a1aa]">Content Vertical Alignment (if no buttons)</label>
+                        <label className="text-sm text-white/60">Content Vertical Alignment (if no buttons)</label>
                         <select 
                           value={proj.contentVerticalAlign || "center"} 
                           onChange={(e) => updateProject(proj.id, "contentVerticalAlign", e.target.value)}
-                          className="bg-[#0a0e14] border border-white/10 rounded-xl px-4 py-3 text-[#e6e6e6] focus:outline-none focus:border-white/30 transition-colors w-full"
+                          className="bg-black/50 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-white/30 transition-colors w-full"
                         >
-                          <option value="center">Center</option>
-                          <option value="top">Top</option>
+                          <option value="center" className="bg-[#0f1520]">Center</option>
+                          <option value="top" className="bg-[#0f1520]">Top</option>
                         </select>
                       </div>
                       <Input label="Card Link (Optional URL for entire card)" value={proj.cardLink || ""} onChange={(v) => updateProject(proj.id, "cardLink", v)} />

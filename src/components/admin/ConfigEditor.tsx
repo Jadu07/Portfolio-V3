@@ -222,13 +222,13 @@ export function Section({ title, children }: { title: string, children: React.Re
 export function Input({ label, value, onChange, placeholder }: { label: string, value: string, onChange: (v: string) => void, placeholder?: string }) {
   return (
     <div className="flex flex-col gap-2">
-      <label className="text-sm text-[#a1a1aa]">{label}</label>
+      <label className="text-sm text-white/60">{label}</label>
       <input 
         type="text" 
         value={value || ""} 
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className="bg-[#0a0e14] border border-white/10 rounded-xl px-4 py-3 text-[#e6e6e6] focus:outline-none focus:border-white/30 transition-colors w-full"
+        className="bg-black/50 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-white/30 transition-colors w-full"
       />
     </div>
   );
@@ -237,13 +237,13 @@ export function Input({ label, value, onChange, placeholder }: { label: string, 
 export function Textarea({ label, value, onChange, placeholder }: { label: string, value: string, onChange: (v: string) => void, placeholder?: string }) {
   return (
     <div className="flex flex-col gap-2">
-      <label className="text-sm text-[#a1a1aa]">{label}</label>
+      <label className="text-sm text-white/60">{label}</label>
       <textarea 
         value={value || ""} 
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
         rows={4}
-        className="bg-[#0a0e14] border border-white/10 rounded-xl px-4 py-3 text-[#e6e6e6] focus:outline-none focus:border-white/30 transition-colors w-full resize-y"
+        className="bg-black/50 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-white/30 transition-colors w-full resize-y"
       />
     </div>
   );
