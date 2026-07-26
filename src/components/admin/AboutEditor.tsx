@@ -297,97 +297,88 @@ export default function AboutEditor({ about, onChange }: { about: AboutData, onC
 
       {/* Skills */}
       <Section title="Skills">
-        <div className="flex flex-col gap-6">
-          {about.skills.map((skillGroup, idx) => (
-            <div key={idx} className="bg-white/5 p-4 rounded-xl border border-white/10 flex flex-col gap-4 group hover:border-white/20 transition-all">
-              <div className="flex justify-between items-center">
-                <h3 className="font-medium text-white/80">Skill Category {idx + 1}</h3>
-                <div className="flex items-center gap-2">
-                  <button
-                    onClick={() => moveItem(about.skills, idx, 'up', 'skills')}
-                    disabled={idx === 0}
-                    className="p-2 text-white/50 hover:text-white disabled:opacity-20 transition-colors"
-                    title="Move Up"
-                  >
-                    ↑
-                  </button>
-                  <button
-                    onClick={() => moveItem(about.skills, idx, 'down', 'skills')}
-                    disabled={idx === about.skills.length - 1}
-                    className="p-2 text-white/50 hover:text-white disabled:opacity-20 transition-colors"
-                    title="Move Down"
-                  >
-                    ↓
-                  </button>
-                  <button
-                    onClick={() => {
-                      const newSkills = [...about.skills];
-                      newSkills.splice(idx, 1);
-                      updateField("skills", newSkills);
-                    }}
-                    className="p-2 text-red-400 hover:bg-red-500/10 rounded-lg transition-colors ml-2"
-                    title="Delete Category"
-                  >
-                    <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none">
-                      <line x1="18" y1="6" x2="6" y2="18"></line>
-                      <line x1="6" y1="6" x2="18" y2="18"></line>
-                    </svg>
-                  </button>
-                </div>
-              </div>
+        <div className="flex flex-col gap-4">
+          {(() => {
+            const flatSkills: string[] = Array.isArray(about.skills)
+              ? about.skills.flatMap((s: any) => typeof s === 'string' ? s : [s.category, ...(s.items || [])]).filter(Boolean)
+              : [];
 
-              <Input label="Category Name (e.g. Full Stack Development)" value={skillGroup.category} onChange={(v) => {
-                const newSkills = [...about.skills];
-                newSkills[idx].category = v;
-                updateField("skills", newSkills);
-              }} />
-
-              <div className="flex flex-col gap-2">
-                <label className="text-sm text-white/60">Skills in this category</label>
-                <div className="flex flex-wrap gap-2">
-                  {skillGroup.items.map((item, itemIdx) => (
-                    <div key={itemIdx} className="bg-[#0a0e14] border border-white/10 px-3 py-1 rounded-full flex items-center gap-2 text-sm">
-                      <span>{item}</span>
-                      <button 
-                        onClick={() => {
-                          const newSkills = [...about.skills];
-                          newSkills[idx].items.splice(itemIdx, 1);
-                          updateField("skills", newSkills);
+            return (
+              <>
+                {flatSkills.map((skill, idx) => (
+                  <div key={idx} className="bg-white/5 p-4 rounded-xl border border-white/10 flex items-center justify-between gap-4 group hover:border-white/20 transition-all">
+                    <div className="flex-1">
+                      <Input 
+                        label={`Skill #${idx + 1}`}
+                        value={skill}
+                        onChange={(v) => {
+                          const updated = [...flatSkills];
+                          updated[idx] = v;
+                          updateField("skills", updated);
                         }}
-                        className="text-red-400 hover:text-red-300"
-                        title="Remove Skill"
+                        placeholder="e.g. Next.js, Node.js, Python"
+                      />
+                    </div>
+                    <div className="flex items-center gap-2 shrink-0 mt-6">
+                      <button
+                        onClick={() => {
+                          if (idx > 0) {
+                            const updated = [...flatSkills];
+                            const temp = updated[idx];
+                            updated[idx] = updated[idx - 1];
+                            updated[idx - 1] = temp;
+                            updateField("skills", updated);
+                          }
+                        }}
+                        disabled={idx === 0}
+                        className="p-2 text-white/50 hover:text-white disabled:opacity-20 transition-colors"
+                        title="Move Up"
                       >
-                        &times;
+                        ↑
+                      </button>
+                      <button
+                        onClick={() => {
+                          if (idx < flatSkills.length - 1) {
+                            const updated = [...flatSkills];
+                            const temp = updated[idx];
+                            updated[idx] = updated[idx + 1];
+                            updated[idx + 1] = temp;
+                            updateField("skills", updated);
+                          }
+                        }}
+                        disabled={idx === flatSkills.length - 1}
+                        className="p-2 text-white/50 hover:text-white disabled:opacity-20 transition-colors"
+                        title="Move Down"
+                      >
+                        ↓
+                      </button>
+                      <button
+                        onClick={() => {
+                          const updated = [...flatSkills];
+                          updated.splice(idx, 1);
+                          updateField("skills", updated);
+                        }}
+                        className="p-2 text-red-400 hover:bg-red-500/10 rounded-lg transition-colors ml-1"
+                        title="Delete Skill"
+                      >
+                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none">
+                          <line x1="18" y1="6" x2="6" y2="18"></line>
+                          <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
                       </button>
                     </div>
-                  ))}
-                  <div className="flex items-center gap-2">
-                    <input 
-                      type="text"
-                      placeholder="Add a skill..."
-                      className="bg-transparent border-b border-white/20 text-sm px-2 py-1 focus:outline-none focus:border-white w-[120px]"
-                      onKeyDown={(e) => {
-                        if (e.key === 'Enter' && e.currentTarget.value) {
-                          e.preventDefault();
-                          const newSkills = [...about.skills];
-                          newSkills[idx].items.push(e.currentTarget.value);
-                          updateField("skills", newSkills);
-                          e.currentTarget.value = "";
-                        }
-                      }}
-                    />
                   </div>
-                </div>
-              </div>
-            </div>
-          ))}
-          <button 
-            onClick={() => updateField("skills", [...about.skills, { category: "New Category", items: [] }])}
-            className="text-sm text-[#a1a1aa] hover:text-white flex items-center gap-2 py-4 border border-dashed border-white/10 rounded-xl justify-center transition-colors"
-          >
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 5v14M5 12h14"/></svg>
-            Add Skill Category
-          </button>
+                ))}
+                <button 
+                  onClick={() => updateField("skills", [...flatSkills, "New Skill"])}
+                  className="text-sm text-[#a1a1aa] hover:text-white flex items-center gap-2 py-4 border border-dashed border-white/10 rounded-xl justify-center transition-colors mt-2"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 5v14M5 12h14"/></svg>
+                  Add Skill
+                </button>
+              </>
+            );
+          })()}
         </div>
       </Section>
 

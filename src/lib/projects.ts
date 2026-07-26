@@ -52,7 +52,7 @@ export interface AboutData {
   stats: AboutStat[];
   story: string[];
   experience: AboutExperience[];
-  skills: AboutSkillCategory[];
+  skills: string[] | AboutSkillCategory[];
   education: AboutEducation[];
 }
 

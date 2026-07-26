@@ -6,9 +6,8 @@ import { AboutData } from "@/lib/projects";
 export default function AboutContent({ data }: { data: AboutData | null }) {
   if (!data) return null;
 
-  // Flatten skills for the existing UI layout
-  const allSkills = data.skills 
-    ? data.skills.flatMap(s => [s.category, ...s.items]).filter(Boolean)
+  const allSkills: string[] = data.skills 
+    ? data.skills.flatMap((s: any) => typeof s === 'string' ? s : [s.category, ...(s.items || [])]).filter(Boolean)
     : [];
 
   return (
