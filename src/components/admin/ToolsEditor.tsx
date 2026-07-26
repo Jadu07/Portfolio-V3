@@ -462,23 +462,23 @@ export default function ToolsEditor({ config, onUpdate }: ToolsEditorProps) {
               {/* Form Input Fields */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="flex flex-col gap-2">
-                  <label className="text-xs text-white/60">Tool Name</label>
+                  <label className="text-sm text-white/60">Tool Name</label>
                   <input
                     type="text"
                     value={tool.name}
                     onChange={(e) => handleToolChange(idx, "name", e.target.value)}
                     placeholder="e.g. Next.js"
-                    className="bg-black/50 border border-white/10 rounded-lg px-3.5 py-2 text-sm text-white focus:outline-none focus:border-white/30"
+                    className="bg-black/50 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-white/30 transition-colors w-full"
                   />
                 </div>
                 <div className="flex flex-col gap-2">
-                  <label className="text-xs text-white/60">Icon Image URL</label>
+                  <label className="text-sm text-white/60">Icon Image URL</label>
                   <input
                     type="text"
                     value={tool.image}
                     onChange={(e) => handleToolChange(idx, "image", e.target.value)}
                     placeholder="https://cdn.simpleicons.org/nextdotjs"
-                    className="bg-black/50 border border-white/10 rounded-lg px-3.5 py-2 text-sm text-white focus:outline-none focus:border-white/30"
+                    className="bg-black/50 border border-white/10 rounded-lg px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-white/30 transition-colors w-full"
                   />
                 </div>
               </div>
