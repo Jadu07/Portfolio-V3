@@ -72,6 +72,8 @@ export interface Tool {
   name: string;
   slug?: string;
   image: string;
+  isEnabled?: boolean;
+  category?: string;
 }
 
 export interface HomeConfig {
