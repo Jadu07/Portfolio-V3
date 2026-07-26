@@ -200,7 +200,7 @@ export default function AdminDashboard({ initialData }: { initialData: GistData 
       <div className="flex flex-1 overflow-hidden relative z-10">
         {/* Sidebar */}
         <aside className="w-[240px] border-r border-white/5 bg-black/20 backdrop-blur-xl p-4 flex flex-col gap-2 shrink-0">
-          <TabButton active={activeTab === "analytics"} onClick={() => setActiveTab("analytics")} label="📊 Analytics Dashboard" />
+          <TabButton active={activeTab === "analytics"} onClick={() => setActiveTab("analytics")} label="Analytics" />
           <TabButton active={activeTab === "config"} onClick={() => setActiveTab("config")} label="Global Settings" />
           <TabButton active={activeTab === "projects"} onClick={() => setActiveTab("projects")} label="Projects" />
           <TabButton active={activeTab === "about"} onClick={() => setActiveTab("about")} label="About Me" />
